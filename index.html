@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your First 2D Game - A classic space shooter built in Godot 4. Explore features, screenshots, and download the game.">
+    <title>Your First 2D Game – Classic Shmup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/favicon.png">
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a class="brand" href="#top">
+                <span class="brand-mark" aria-hidden="true">★</span>
+                <span class="brand-text">Classic Shmup</span>
+            </a>
+            <nav class="nav">
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#howto">How to Play</a>
+                <a class="btn btn-small" href="#download">Download</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-media" aria-hidden="true"></div>
+            <div class="container hero-inner">
+                <h1>Blast off into retro arcade action</h1>
+                <p>Build and play a classic 2D space shooter inspired by the tutorial series.
+                Learn core Godot 4 techniques while dodging enemy fire and chasing high scores.</p>
+                <div class="hero-ctas">
+                    <a class="btn btn-primary" href="#download">Download .zip</a>
+                    <a class="btn btn-outline" href="#features">Explore Features</a>
+                </div>
+                <div class="hero-badges">
+                    <span class="badge">Godot 4</span>
+                    <span class="badge">2D Shooter</span>
+                    <span class="badge">Open Source</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="container split">
+                <div class="copy">
+                    <h2>About the Game</h2>
+                    <p>This project follows the “Your First 2D Game” tutorial to create a fast-paced
+                    shmup with polished controls, tight collisions, and satisfying feedback. It’s a
+                    perfect foundation for expanding into your own arcade ideas.</p>
+                    <p>Learn more about the tutorial series here:
+                        <a href="https://kidscancode.org/godot_recipes/4.x/games/first_2d/" target="_blank" rel="noopener">KidsCanCode – Your First 2D Game</a>.
+                    </p>
+                </div>
+                <div class="panel">
+                    <ul class="bullets">
+                        <li><span>Project-based learning in Godot 4</span></li>
+                        <li><span>Clean scene structure and reusable nodes</span></li>
+                        <li><span>Player, enemies, bullets, scoring, and UI</span></li>
+                        <li><span>Extend with waves, power-ups, and more</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt" id="features">
+            <div class="container">
+                <h2>Features</h2>
+                <div class="feature-grid">
+                    <article class="feature">
+                        <div class="feature-icon">🎮</div>
+                        <h3>Tight Controls</h3>
+                        <p>Responsive movement and shooting built on Godot’s input map and physics loop.</p>
+                    </article>
+                    <article class="feature">
+                        <div class="feature-icon">💥</div>
+                        <h3>Arcade Feedback</h3>
+                        <p>Impactful VFX/SFX, screenshake hints, and snappy UI for power plays.</p>
+                    </article>
+                    <article class="feature">
+                        <div class="feature-icon">🧠</div>
+                        <h3>Simple AI</h3>
+                        <p>Patterned enemies and projectile behaviors to teach fundamentals.</p>
+                    </article>
+                    <article class="feature">
+                        <div class="feature-icon">🏆</div>
+                        <h3>Score & UI</h3>
+                        <p>Clean HUD, score tracking, and restart flow to keep you in the action.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="gallery">
+            <div class="container">
+                <h2>Screenshots</h2>
+                <div class="gallery-grid">
+                    <figure class="shot">
+                        <img src="assets/img1.jpg" alt="Player ship dodging bullets" loading="lazy" onerror="this.classList.add('img-missing');"/>
+                        <figcaption>Player movement & bullet patterns</figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <img src="assets/img2.jpg" alt="Enemy wave approaching" loading="lazy" onerror="this.classList.add('img-missing');"/>
+                        <figcaption>Enemy waves & formations</figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <img src="assets/img3.jpg" alt="Explosions and effects" loading="lazy" onerror="this.classList.add('img-missing');"/>
+                        <figcaption>Explosions and impact effects</figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <img src="assets/img4.jpg" alt="Score UI and HUD" loading="lazy" onerror="this.classList.add('img-missing');"/>
+                        <figcaption>HUD and score UI</figcaption>
+                    </figure>
+                </div>
+                <p class="hint">Place 4 images in <code>assets/</code> named <code>img1.jpg</code> – <code>img4.jpg</code>.</p>
+            </div>
+        </section>
+
+        <section class="section alt" id="howto">
+            <div class="container split">
+                <div class="copy">
+                    <h2>How to Play</h2>
+                    <ol class="steps">
+                        <li>Move with arrow keys or WASD.</li>
+                        <li>Press Space or Left Mouse to shoot.</li>
+                        <li>Avoid enemy fire and destroy waves.</li>
+                        <li>Chase high scores, then restart and improve.</li>
+                    </ol>
+                </div>
+                <div class="panel">
+                    <div class="kbd-grid">
+                        <div class="kbd">W</div>
+                        <div class="kbd">A</div>
+                        <div class="kbd">S</div>
+                        <div class="kbd">D</div>
+                        <div class="kbd wide">Space</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="download" id="download">
+            <div class="container download-inner">
+                <h2>Download the Game</h2>
+                <p>Grab the packaged build and start blasting. Drop the zip contents anywhere and run.</p>
+                <a id="downloadBtn" class="btn btn-primary btn-large" href="assets/classic_shmup.zip" download>
+                    Download .zip
+                </a>
+                <p class="hint">Place your exported game at <code>assets/classic_shmup.zip</code>.</p>
+                <div class="links">
+                    <a class="text-link" href="https://kidscancode.org/godot_recipes/4.x/games/first_2d/" target="_blank" rel="noopener">Tutorial reference</a>
+                    <a class="text-link" href="https://github.com/godotrecipes/classic_shmup" target="_blank" rel="noopener">Source on GitHub</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>Built with Godot 4 · Inspired by the KidsCanCode tutorial</p>
+            <a href="#top" class="to-top" aria-label="Back to top">↑</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
