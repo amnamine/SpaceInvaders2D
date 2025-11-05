@@ -46,12 +46,130 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Download button analytics hook (no external services by default)
+// Download button analytics hook
 const downloadBtn = document.getElementById('downloadBtn');
 if (downloadBtn) {
     downloadBtn.addEventListener('click', () => {
-        // Hook point to integrate analytics if desired
-        console.log('[download] classic_shmup.zip');
+        console.log('[download] spaceinvaders.rar');
+        // Add analytics tracking here if needed
     });
 }
+
+// Image modal for gallery
+const createModal = () => {
+    const modal = document.createElement('div');
+    modal.className = 'image-modal';
+    modal.innerHTML = `
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close">×</button>
+            <img src="" alt="" class="modal-image">
+        </div>
+    `;
+    document.body.appendChild(modal);
+    return modal;
+};
+
+const modal = createModal();
+const modalImg = modal.querySelector('.modal-image');
+const modalClose = modal.querySelector('.modal-close');
+const modalBackdrop = modal.querySelector('.modal-backdrop');
+
+const openModal = (imgSrc, imgAlt) => {
+    modalImg.src = imgSrc;
+    modalImg.alt = imgAlt;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+};
+
+const closeModal = () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+};
+
+modalClose.addEventListener('click', closeModal);
+modalBackdrop.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Gallery image click handlers
+document.querySelectorAll('.shot img').forEach((img) => {
+    img.addEventListener('click', () => {
+        openModal(img.src, img.alt);
+    });
+});
+
+// Modal styles
+const modalStyle = document.createElement('style');
+modalStyle.textContent = `
+  .image-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+  }
+  .image-modal.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(11, 15, 26, .95);
+    backdrop-filter: blur(8px);
+  }
+  .modal-content {
+    position: relative;
+    z-index: 1;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.6);
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+  .modal-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: rgba(109, 240, 255, .2);
+    border: 2px solid rgba(109, 240, 255, .4);
+    color: #e7ebff;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  .modal-close:hover {
+    background: rgba(109, 240, 255, .3);
+    border-color: rgba(109, 240, 255, .6);
+    transform: scale(1.1);
+  }
+`;
+document.head.appendChild(modalStyle);
 

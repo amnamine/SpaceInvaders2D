@@ -143,8 +143,24 @@ body {
 }
 
 .btn-large {
-    padding: 16px 22px;
-    font-size: 1.1rem;
+    padding: 18px 28px;
+    font-size: 1.15rem;
+    gap: 12px;
+}
+
+.btn-icon {
+    font-size: 1.2em;
+    display: inline-block;
+    transition: transform .3s ease;
+}
+
+.btn:hover .btn-icon {
+    transform: translateY(2px);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 12px 32px rgba(109, 240, 255, .35);
+    background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary) 100%);
 }
 
 /* Hero */
@@ -176,6 +192,10 @@ body {
     margin: 0 0 14px;
     letter-spacing: .2px;
     font-weight: 800;
+    background: linear-gradient(135deg, var(--text) 0%, var(--primary) 50%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .hero p {
@@ -200,12 +220,20 @@ body {
 
 .badge {
     display: inline-flex;
-    padding: 6px 10px;
+    padding: 8px 14px;
     border-radius: 999px;
     font-size: .85rem;
+    font-weight: 600;
     background: rgba(155, 109, 255, .14);
     color: var(--text);
     border: 1px solid rgba(155, 109, 255, .35);
+    transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.badge:hover {
+    transform: scale(1.05);
+    background: rgba(155, 109, 255, .22);
+    border-color: rgba(155, 109, 255, .5);
 }
 
 /* Sections */
@@ -229,7 +257,14 @@ body {
 .copy h2,
 .section h2 {
     font-size: clamp(1.6rem, 3.2vw, 2.2rem);
-    margin: 0 0 12px;
+    margin: 0 0 16px;
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 32px;
 }
 
 .copy p {
@@ -239,10 +274,16 @@ body {
 
 .panel {
     background: var(--panel);
-    border: 1px solid rgba(109, 240, 255, .12);
+    border: 2px solid rgba(109, 240, 255, .12);
     border-radius: var(--radius);
-    padding: 18px;
+    padding: 22px;
     box-shadow: var(--shadow);
+    transition: border-color .3s ease, box-shadow .3s ease;
+}
+
+.panel:hover {
+    border-color: rgba(109, 240, 255, .25);
+    box-shadow: 0 12px 32px rgba(109, 240, 255, .1);
 }
 
 .bullets {
@@ -264,16 +305,18 @@ body {
 
 .feature {
     background: var(--panel);
-    border: 1px solid rgba(109, 240, 255, .12);
+    border: 2px solid rgba(109, 240, 255, .12);
     border-radius: var(--radius);
-    padding: 18px;
+    padding: 22px;
     box-shadow: var(--shadow);
-    transition: transform .2s ease, border-color .2s ease;
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease;
 }
 
 .feature:hover {
-    transform: translateY(-2px);
-    border-color: rgba(109, 240, 255, .35);
+    transform: translateY(-4px);
+    border-color: rgba(109, 240, 255, .4);
+    box-shadow: 0 12px 32px rgba(109, 240, 255, .15);
+    background: rgba(15, 21, 36, .95);
 }
 
 .feature-icon {
@@ -296,31 +339,65 @@ body {
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
+    gap: 18px;
 }
 
 .shot {
     margin: 0;
     background: var(--panel);
-    border: 1px solid rgba(109, 240, 255, .12);
+    border: 2px solid rgba(109, 240, 255, .15);
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    cursor: pointer;
+}
+
+.shot:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: rgba(109, 240, 255, .4);
+    box-shadow: 0 16px 40px rgba(109, 240, 255, .2);
+}
+
+.shot-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #0a0f18;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .shot img {
     width: 100%;
-    height: 190px;
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain;
     display: block;
-    background: #0a0f18;
+    transition: transform .4s ease;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+.shot:hover img {
+    transform: scale(1.05);
 }
 
 .shot figcaption {
-    padding: 10px 12px;
+    padding: 12px 14px;
     color: var(--muted);
     font-size: .95rem;
-    border-top: 1px solid rgba(109, 240, 255, .08);
+    font-weight: 600;
+    border-top: 1px solid rgba(109, 240, 255, .12);
+    background: rgba(15, 21, 36, .6);
+    transition: color .2s ease, background .2s ease;
+}
+
+.shot:hover figcaption {
+    color: var(--text);
+    background: rgba(15, 21, 36, .8);
 }
 
 .img-missing {
@@ -369,22 +446,41 @@ body {
 /* Download */
 .download {
     padding: clamp(56px, 9vw, 96px) 0;
-    background: radial-gradient(700px 400px at 80% 0%, rgba(88, 247, 154, .06), transparent 50%), var(--bg-alt);
+    background: radial-gradient(700px 400px at 80% 0%, rgba(88, 247, 154, .06), transparent 50%), 
+                radial-gradient(600px 350px at 20% 100%, rgba(109, 240, 255, .08), transparent 50%),
+                var(--bg-alt);
     border-top: 1px solid rgba(109, 240, 255, .08);
+    position: relative;
+}
+
+.download::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(109, 240, 255, .4), transparent);
 }
 
 .download-inner {
     text-align: center;
+    position: relative;
 }
 
 .download h2 {
-    margin: 0 0 12px;
+    margin: 0 0 16px;
     font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .download p {
     color: var(--muted);
-    margin: 0 0 18px;
+    margin: 0 0 24px;
+    font-size: 1.05rem;
 }
 
 .links {

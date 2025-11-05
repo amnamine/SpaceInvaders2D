@@ -36,7 +36,7 @@
                 <p>Build and play a classic 2D space shooter inspired by the tutorial series.
                 Learn core Godot 4 techniques while dodging enemy fire and chasing high scores.</p>
                 <div class="hero-ctas">
-                    <a class="btn btn-primary" href="#download">Download .zip</a>
+                    <a class="btn btn-primary" href="#download">Download Game</a>
                     <a class="btn btn-outline" href="#features">Explore Features</a>
                 </div>
                 <div class="hero-badges">
@@ -102,23 +102,30 @@
                 <h2>Screenshots</h2>
                 <div class="gallery-grid">
                     <figure class="shot">
-                        <img src="assets/img1.jpg" alt="Player ship dodging bullets" loading="lazy" onerror="this.classList.add('img-missing');"/>
-                        <figcaption>Player movement & bullet patterns</figcaption>
+                        <div class="shot-wrapper">
+                            <img src="image1.png" alt="Gameplay screenshot - Enemy formations and player ship" loading="lazy"/>
+                        </div>
+                        <figcaption>Gameplay Action</figcaption>
                     </figure>
                     <figure class="shot">
-                        <img src="assets/img2.jpg" alt="Enemy wave approaching" loading="lazy" onerror="this.classList.add('img-missing');"/>
-                        <figcaption>Enemy waves & formations</figcaption>
+                        <div class="shot-wrapper">
+                            <img src="image2.png" alt="Pixel art sprite comparison" loading="lazy"/>
+                        </div>
+                        <figcaption>Pixel Art Assets</figcaption>
                     </figure>
                     <figure class="shot">
-                        <img src="assets/img3.jpg" alt="Explosions and effects" loading="lazy" onerror="this.classList.add('img-missing');"/>
-                        <figcaption>Explosions and impact effects</figcaption>
+                        <div class="shot-wrapper">
+                            <img src="image3.png" alt="Enemy sprite design" loading="lazy"/>
+                        </div>
+                        <figcaption>Enemy Design</figcaption>
                     </figure>
                     <figure class="shot">
-                        <img src="assets/img4.jpg" alt="Score UI and HUD" loading="lazy" onerror="this.classList.add('img-missing');"/>
-                        <figcaption>HUD and score UI</figcaption>
+                        <div class="shot-wrapper">
+                            <img src="image4.gif" alt="Player spaceship with animated effects" loading="lazy"/>
+                        </div>
+                        <figcaption>Player Ship (Animated)</figcaption>
                     </figure>
                 </div>
-                <p class="hint">Place 4 images in <code>assets/</code> named <code>img1.jpg</code> – <code>img4.jpg</code>.</p>
             </div>
         </section>
 
@@ -149,10 +156,10 @@
             <div class="container download-inner">
                 <h2>Download the Game</h2>
                 <p>Grab the packaged build and start blasting. Drop the zip contents anywhere and run.</p>
-                <a id="downloadBtn" class="btn btn-primary btn-large" href="assets/classic_shmup.zip" download>
-                    Download .zip
+                <a id="downloadBtn" class="btn btn-primary btn-large" href="spaceinvaders.rar" download>
+                    <span>Download spaceinvaders.rar</span>
+                    <span class="btn-icon">⬇</span>
                 </a>
-                <p class="hint">Place your exported game at <code>assets/classic_shmup.zip</code>.</p>
                 <div class="links">
                     <a class="text-link" href="https://kidscancode.org/godot_recipes/4.x/games/first_2d/" target="_blank" rel="noopener">Tutorial reference</a>
                     <a class="text-link" href="https://github.com/godotrecipes/classic_shmup" target="_blank" rel="noopener">Source on GitHub</a>
